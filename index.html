@@ -19,6 +19,17 @@
     }
   </script>
 <script>
+var runTime = true;
+
+function runTimer(){
+  runTime = document.getElementById("refSwitch").checked;
+}
+
+
+</script>
+
+
+<script>
   var timeleft = 60;
   var downloadTimer = setInterval(function(){
     if(timeleft < 0){
@@ -28,7 +39,7 @@
     } else {
       document.getElementById("countdown").innerHTML = "Table will auto refresh in: "+timeleft;
     }
-    if(document.getElementById("refSwitch").checked == ture){
+    if(runTime==true){
       timeleft -= 1;
     }
   }, 1000);
@@ -82,7 +93,7 @@
       <div id="countdown"></div>
 
       <label class="switch">
-        <input type="checkbox" id = "refSwitch" checked = true>
+        <input type="checkbox" id = "refSwitch" checked = true onclick = "runTimer()">
         <span class="slider round">Auto Refresh</span>
       </label>
     </div>
@@ -112,4 +123,3 @@
 
 </body>
 </html>
-
